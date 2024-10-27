@@ -1,0 +1,16 @@
+<div class="row">
+  <div class="col-md-6 col-lg-4 my-4" *ngFor="let item of dishes">
+    <div class="card h-100">
+      <img class="card-img-top img-fluid" [src]="item.url_img" alt="{{ item.name }}" />
+      <div class="card-body">
+        <h5 class="card-title text-black fs-4 fw-bold text-uppercase">{{ item.name }}</h5>
+        <p class="card-text">{{ item.description }}</p>
+        <p class="fw-black text-primary fs-3">{{ item.price }} $</p>
+
+        <button (click)="addData(item)" type="button"  class="btn btn-dark w-100">
+          Agregar al Carrito
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

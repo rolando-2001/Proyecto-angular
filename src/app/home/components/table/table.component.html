@@ -1,0 +1,41 @@
+
+
+<div id="carrito" class="bg-white p-3">
+    <div *ngIf="cartItems.length === 0; else myCart">
+        <p class="text-center">El carrito está vacío</p>
+    </div>
+  
+    <ng-template #myCart>
+        <table class="w-100 table">
+            <thead>
+                <tr>
+                    <th>Imagen</th>
+                    <th>Nombre</th>
+                    <th>Precio</th>
+                    <th>Cantidad</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody >
+                <tr *ngFor="let item of cartItems">
+                    <td>
+                        <img class="img-fluid" [src]="item.dish_id.url_img" alt="imagen guitarra" />
+                    </td>
+                    <td>{{item.dish_id.name}}</td>
+                    <td class="fw-bold">{{item.dish_id.price}}</td>
+                    <td class="flex align-items-start gap-4">
+                        <button type="button" class="btn btn-dark" (click)="dataDecrement(item)"  >-</button>
+                        {{item.quantity}}
+                        <button type="button" class="btn btn-dark" (click)="add(item)" >+</button>
+                    </td>
+                    <td>
+                        <button class="btn btn-danger" type="button" (click)="delete(item)">X</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <p class="text-end">Total a pagar: <span class="fw-bold">{{total() }}</span></p>
+        <button class="btn btn-dark w-100 mt-3 p-2">Vaciar Carrito</button>
+    </ng-template>
+</div>

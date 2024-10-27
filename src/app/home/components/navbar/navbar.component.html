@@ -1,0 +1,16 @@
+<nav class="container-xl">
+    <ul class="nav-info list-group">
+        <li routerLink="" class="list-group-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" >
+            Home</li>
+        <li routerLink="cart/list" routerLinkActive="active" class="list-group-item">Productos</li> 
+        
+        <li>
+            <div class="carrito">
+                <img class="img-fluid" src="img/carrito.png" alt="imagen carrito" />
+                
+                <app-table ></app-table>
+
+            </div>
+        </li>
+    </ul>
+</nav>
